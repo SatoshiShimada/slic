@@ -1,7 +1,7 @@
 DEBUG=0
 
 CXX=g++
-CFLAGS=-std=c++14 -Wall `pkg-config --cflags opencv`
+CFLAGS=-std=c++11 -Wall `pkg-config --cflags opencv`
 LIBS=-lm `pkg-config --libs opencv`
 OPTS=
 
