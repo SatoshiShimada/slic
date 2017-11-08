@@ -199,9 +199,14 @@ cv::Mat slic(const cv::Mat img, const int cluster_num, const double threshold)
 
 int main(int argc, char **argv)
 {
-	if(argc != 3) return 1;
-	cv::Mat img = cv::imread(argv[1]);
-	cv::Mat result_img = slic(img, 256, std::stod(std::string(argv[2])));
+	if(argc != 3) {
+		std::cerr << "Usage: ./slic [filename] [cluster size]" << std::endl;
+		return 1;
+	}
+	const char *filename = argv[1];
+	const char *cluster_num = argv[2];
+	cv::Mat img = cv::imread(filename);
+	cv::Mat result_img = slic(img, 256, std::stod(std::string(cluster_num)));
 
 	cv::namedWindow("result", CV_WINDOW_AUTOSIZE);
 	cv::imshow("result", result_img);
